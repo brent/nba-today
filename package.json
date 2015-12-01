@@ -1,0 +1,13 @@
+{
+  "name" : "nba-stats",
+  "version" : "0.0.1",
+  "description" : "Display NBA game data",
+  "main" : "server.js",
+  "author" : "Brent",
+  "dependencies" : {
+    "express" : "latest",
+    "request" : "latest",
+    "nba"     : "latest",
+    "moment"  : "latest"
+  }
+}
