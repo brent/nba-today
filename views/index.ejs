@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NBA Today</title>
+    <link href="/css/reset.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <% matchups.forEach(function(matchup) { %>
+    <section class="matchup">
+      <div class="matchup__home-team--wrapper <%= matchup.homeTeam.name.toLowerCase() %>">
+        <div class="matchup__home-team--inner">
+
+          <h2 class="matchup__home-team-title">
+            <span class="matchup__home-team-city-name"><%= matchup.homeTeam.city %></span>
+            <span class="matchup__home-team-team-name"><%= matchup.homeTeam.name %></span>
+          </h2>
+          <table class="matchup__stats-table">
+            <thead>
+              <tr>
+                <td>W</td>
+                <td>L</td>
+                <td>H</td>
+                <td>A</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= matchup.homeTeam.wins %></td>
+                <td><%= matchup.homeTeam.losses %></td>
+                <td><%= matchup.homeTeam.homeRecord %></td>
+                <td><%= matchup.homeTeam.roadRecord %></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div><!-- END .home-team -->
+      <div class="matchup__visitor-team--wrapper <%= matchup.visitorTeam.name.toLowerCase() %>">
+        <div class="matchup__visitor-team--inner">
+          <h2 class="matchup__visitor-team-title">
+            <span class="matchup__visitor-team-city-name"><%= matchup.visitorTeam.city %></span>
+            <span class="matchup__visitor-team-team-name"><%= matchup.visitorTeam.name %></span>
+          </h2>
+          <table class="matchup__stats-table">
+            <thead>
+              <tr>
+                <td>W</td>
+                <td>L</td>
+                <td>H</td>
+                <td>A</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= matchup.visitorTeam.wins %></td>
+                <td><%= matchup.visitorTeam.losses %></td>
+                <td><%= matchup.visitorTeam.homeRecord %></td>
+                <td><%= matchup.visitorTeam.roadRecord %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><!-- END .visitor-team -->
+    </section><!-- END .matchup -->
+      <br><br>
+    <% }); %>
+  </body>
+</html>

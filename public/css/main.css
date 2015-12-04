@@ -1,0 +1,149 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald|Droid+Serif:400italic);
+
+html { font-size: 20px; }
+
+.matchup {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100vh;
+  width: 100vw;
+}
+
+.matchup__home-team--wrapper,
+.matchup__visitor-team--wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.matchup__visitor-team--inner {
+  margin-left: auto;
+}
+
+.matchup__home-team--wrapper {
+  padding-left: 2.5rem;
+}
+
+.matchup__visitor-team--wrapper {
+  padding-right: 2.5rem;
+}
+
+.matchup__home-team-city-name,
+.matchup__visitor-team-city-name,
+.matchup__home-team-team-name,
+.matchup__visitor-team-team-name {
+  display: block;
+}
+
+.matchup__home-team-city-name,
+.matchup__visitor-team-city-name {
+  font-family: "Droid Serif";
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.matchup__home-team-team-name,
+.matchup__visitor-team-team-name {
+  font-family: Oswald;
+  font-size: 5rem;
+  text-transform: uppercase;
+  margin: 0 0 1rem -0.25rem;
+}
+
+.matchup__stats-table td {
+  box-sizing: border-box;
+  color: #fff;
+  font-family: Oswald;
+  font-size: 0.8rem;
+  text-align: left;
+  padding: 0 1.5rem 0 0.5rem;
+}
+
+.matchup__stats-table thead td {
+  padding-bottom: 0.5rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.matchup__stats-table tbody td {
+  padding-top: 0.5rem;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.matchup__stats-table td:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+.matchup__stats-table td:first-child {
+  padding-left: 0;
+}
+
+
+/********************/
+
+/* Atlanta Hawks colors
+ * primary: #E03A3E
+ * secondary: #C3D600
+ * tertiary: white
+ * quarternay: black
+*/
+
+.matchup__home-team--wrapper.hawks,
+.matchup__visitor-team--wrapper.hawks {
+  background: #E03A3E;
+  color: #C3D600;
+}
+
+.matchup__home-team--wrapper.hawks .matchup__stats-table thead td {
+  border-color: #C3D600;
+}
+
+.matchup__home-team--wrapper.hawks .matchup__stats-table tbody td {
+  border-color: #C3D600;
+}
+
+/* New York Knicks colors
+ * primary: #006BB6
+ * secondary: #F58426
+ * tertiary: white
+ * quarterany: #BEC0C2
+*/
+
+.matchup__home-team--wrapper.knicks,
+.matchup__visitor-team--wrapper.knicks {
+  background: #006BB6;
+  color: #F58426;
+}
+
+.matchup__home-team--wrapper.knicks .matchup__stats-table thead td {
+  border-color: #F58426;
+}
+
+.matchup__home-team--wrapper.knicks .matchup__stats-table tbody td {
+  border-color: #F58426;
+}
+
+/* Brooklyn Nets colors
+ * primary: black
+ * secondary: white
+*/
+
+.matchup__home-team--wrapper.nets,
+.matchup__visitor-team--wrapper.nets {
+  background: #000;
+  color: #fff;
+}
+
+.matchup__home-team--wrapper.nets .matchup__stats-table thead td {
+  border-color: #fff;
+}
+
+.matchup__home-team--wrapper.nets .matchup__stats-table tbody td {
+  border-color: #fff;
+}

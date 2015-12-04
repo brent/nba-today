@@ -4,6 +4,9 @@ var express = require("express");
 
 var app = express();
 
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
 app.get('/', function(req, res) {
 
   var today = moment().format("MM/DD/YYYY");
@@ -80,7 +83,7 @@ app.get('/', function(req, res) {
 
     });
 
-    res.send(matchups);
+    res.render('index', { matchups: matchups });
 
   });
 
@@ -90,5 +93,5 @@ var server = app.listen(3000, function() {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('listening @ http://' + host + ':' + port);
+  console.log('listening @ http://localhost:' + port);
 });
