@@ -3,6 +3,7 @@
   <head>
     <title>NBA Today</title>
     <link href="/css/reset.css" rel="stylesheet">
+    <link href="/css/team-colors.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
   </head>
   <body>
@@ -36,6 +37,13 @@
 
         </div>
       </div><!-- END .home-team -->
+      <div class="matchup__meta">
+        <p class="matchup__at-sign">@</p>
+        <p class="matchup__game-start">
+          <!-- <span>Game starts at</span> -->
+          <span class="matchup__game-start-time"><%= matchup.time %></span>
+        </p>
+      </div>
       <div class="matchup__visitor-team--wrapper <%= matchup.visitorTeam.name.toLowerCase() %>">
         <div class="matchup__visitor-team--inner">
           <h2 class="matchup__visitor-team-title">
@@ -63,7 +71,6 @@
         </div>
       </div><!-- END .visitor-team -->
     </section><!-- END .matchup -->
-      <br><br>
     <% }); %>
   </body>
 </html>
