@@ -168,7 +168,7 @@
 
 .warriors,
 .warriors {
-  background: #CE1141;
+  background: #006BB6;
   color: #FDB927;
 }
 
@@ -188,7 +188,7 @@
 .rockets,
 .rockets {
   background: #CE1141;
-  color: #C4CED3;
+  color: #fff;
 }
 
 .rockets .matchup__stats-table thead td,
@@ -225,12 +225,12 @@
 .clippers,
 .clippers {
   background: #ED174C;
-  color: #006BB6;
+  color: #fff;
 }
 
 .clippers .matchup__stats-table thead td,
 .clippers .matchup__stats-table tbody td {
-  border-color: #006BB6;
+  border-color: #fff;
 }
 
 /* Los Angeles Lakers colors
@@ -387,13 +387,13 @@
 
 .magic,
 .magic {
-  background: #007DC3;
-  color: #F58426;
+  background: #007DC5;
+  color: #C4CED3;
 }
 
 .magic .matchup__stats-table thead td,
 .magic .matchup__stats-table tbody td {
-  border-color: #F58426;
+  border-color: #C4CED3;
 }
 
 /* Philadelphia 76ers colors
@@ -404,13 +404,13 @@
 
 .sixers,
 .sixers {
-  background: #007DC3;
-  color: #F58426;
+  background: #006BB6;
+  color: #ED174C;
 }
 
 .sixers .matchup__stats-table thead td,
 .sixers .matchup__stats-table tbody td {
-  border-color: #F58426;
+  border-color: #ED174C;
 }
 
 /* Phoenix Suns colors
@@ -442,7 +442,7 @@
 .trailblazers,
 .trailblazers {
   background: #F0163A;
-  color: #B6BFBF;
+  color: #fff;
 }
 
 .trailblazers .matchup__stats-table thead td,
@@ -460,7 +460,7 @@
 .kings,
 .kings {
   background: #724C9F;
-  color: #8E9090;
+  color: #fff;
 }
 
 .kings .matchup__stats-table thead td,
@@ -477,12 +477,12 @@
 .spurs,
 .spurs {
   background: #B6BFBF;
-  color: #fff;
+  color: #000;
 }
 
 .spurs .matchup__stats-table thead td,
 .spurs .matchup__stats-table tbody td {
-  border-color: #fff;
+  border-color: #000;
 }
 
 /* Toronto Raptors colors
