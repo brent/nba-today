@@ -11,7 +11,7 @@
     <section class="matchup">
       <div class="matchup__home-team--wrapper 
         <% if(matchup.homeTeam.name==="76ers") { %>
-          sixers
+          <%= sixers %>
         <% } else { %>
           <%= matchup.homeTeam.name.toLowerCase().replace(/\s+/g, "") %>
         <% } %>
@@ -20,7 +20,7 @@
 
           <h2 class="matchup__home-team-title">
             <span class="matchup__home-team-city-name"><%= matchup.homeTeam.city %></span>
-            <span class="matchup__home-team-team-name"><%= matchup.homeTeam.name %></span>
+            <span class="matchup__home-team-team-name"><%= matchup.homeTeam.name %> - <%= matchup.homeTeam.score %></span>
           </h2>
           <table class="matchup__stats-table">
             <thead>
@@ -50,11 +50,17 @@
           <span class="matchup__game-start-time"><%= matchup.time %></span>
         </p>
       </div>
-      <div class="matchup__visitor-team--wrapper <%= matchup.visitorTeam.name.toLowerCase().replace(/\s+/g, "") %>">
+      <div class="matchup__visitor-team--wrapper
+        <% if(matchup.visitorTeam.name==="76ers") { %>
+          sixers
+        <% } else { %>
+          <%= matchup.visitorTeam.name.toLowerCase().replace(/\s+/g, "") %>
+        <% } %>
+        ">
         <div class="matchup__visitor-team--inner">
           <h2 class="matchup__visitor-team-title">
             <span class="matchup__visitor-team-city-name"><%= matchup.visitorTeam.city %></span>
-            <span class="matchup__visitor-team-team-name"><%= matchup.visitorTeam.name %></span>
+            <span class="matchup__visitor-team-team-name"><%= matchup.visitorTeam.name %> - <%= matchup.visitorTeam.score %></span>
           </h2>
           <table class="matchup__stats-table">
             <thead>
