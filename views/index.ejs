@@ -20,7 +20,7 @@
 
           <h2 class="matchup__home-team-title">
             <span class="matchup__home-team-city-name"><%= matchup.homeTeam.city %></span>
-            <span class="matchup__home-team-team-name"><%= matchup.homeTeam.name %> - <%= matchup.homeTeam.score %></span>
+            <span class="matchup__home-team-team-name"><%= matchup.homeTeam.name %></span>
           </h2>
           <table class="matchup__stats-table">
             <thead>
@@ -43,13 +43,16 @@
 
         </div>
       </div><!-- END .home-team -->
+
       <div class="matchup__meta">
         <p class="matchup__at-sign">@</p>
-        <p class="matchup__game-start">
-          <!-- <span>Game starts at</span> -->
-          <span class="matchup__game-start-time"><%= matchup.time %></span>
-        </p>
-      </div>
+        <div class="matchup__game-time-score">
+          <span class="matchup__home-team-score"><%= matchup.homeTeam.score %></span>
+          <span class="matchup__game-time"><%= matchup.time %></span>
+          <span class="matchup__visitor-team-score"><%= matchup.visitorTeam.score %></span>
+        </div><!-- END .matchup__game-time-score -->
+      </div><!-- END .matchup__meta -->
+
       <div class="matchup__visitor-team--wrapper
         <% if(matchup.visitorTeam.name==="76ers") { %>
           sixers
@@ -60,7 +63,7 @@
         <div class="matchup__visitor-team--inner">
           <h2 class="matchup__visitor-team-title">
             <span class="matchup__visitor-team-city-name"><%= matchup.visitorTeam.city %></span>
-            <span class="matchup__visitor-team-team-name"><%= matchup.visitorTeam.name %> - <%= matchup.visitorTeam.score %></span>
+            <span class="matchup__visitor-team-team-name"><%= matchup.visitorTeam.name %></span>
           </h2>
           <table class="matchup__stats-table">
             <thead>

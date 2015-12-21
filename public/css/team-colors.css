@@ -7,7 +7,6 @@
  * quarternay: black
 */
 
-.hawks,
 .hawks {
   background: #E03A3E;
   color: #C3D600;
@@ -16,6 +15,11 @@
 .hawks .matchup__stats-table thead td,
 .hawks .matchup__stats-table tbody td {
   border-color: #C3D600;
+  color: white;
+}
+
+.hawks [class$='team-city-name'] {
+  color: white;
 }
 
 /* Boston Celtics colors
@@ -26,7 +30,6 @@
  * quinary: #C0C0C0
 */
 
-.celtics,
 .celtics {
   background: #008348;
   color: #fff;
@@ -35,14 +38,17 @@
 .celtics .matchup__stats-table thead td,
 .celtics .matchup__stats-table tbody td {
   border-color: #fff;
+  color: black;
 }
 
+.celtics [class$='team-city-name'] {
+  color: black;
+}
 /* Brooklyn Nets colors
  * primary: black
  * secondary: white
 */
 
-.nets,
 .nets {
   background: #000;
   color: #fff;
@@ -51,6 +57,11 @@
 .nets .matchup__stats-table thead td,
 .nets .matchup__stats-table tbody td {
   border-color: #fff;
+  color: inherit;
+}
+
+.nets [class$='team-city-name'] {
+  color: inherit;
 }
 
 /* Charlotte Hornets colors
@@ -60,7 +71,6 @@
  * quarterany: #A1A1A4
 */
 
-.hornets,
 .hornets {
   background: #1D1160;
   color: #008CA8;
@@ -69,23 +79,33 @@
 .hornets .matchup__stats-table thead td,
 .hornets .matchup__stats-table tbody td {
   border-color: #008CA8;
+  color: white;
+}
+
+.hornets [class$='team-city-name'] {
+  color: white;
 }
 
 /* Chicago Bulls colors
- * primary: #CE1141
+ * primary: #CE1141 or #b00203
  * secondary: white
  * tertiary: black
 */
 
-.bulls,
 .bulls {
-  background: #CE1141;
+  /* background: #CE1141; */
+  background: #b00203;
   color: #fff;
 }
 
 .bulls .matchup__stats-table thead td,
 .bulls .matchup__stats-table tbody td {
   border-color: #fff;
+  color: black;
+}
+
+.bulls [class$='team-city-name'] {
+  color: black;
 }
 
 /* Cleveland Cavaliers colors
@@ -95,7 +115,6 @@
  * quarterany: white
 */
 
-.cavaliers,
 .cavaliers {
   background: #860038;
   color: #FDBB30;
@@ -104,6 +123,11 @@
 .cavaliers .matchup__stats-table thead td,
 .cavaliers .matchup__stats-table tbody td {
   border-color: #FDBB30;
+  color: #002D62;
+}
+
+.cavaliers [class$='team-city-name'] {
+  color: #002D62;
 }
 
 /* Dallas Maverikcs colors
@@ -114,7 +138,6 @@
  * quinary: white
 */
 
-.mavericks,
 .mavericks {
   background: #007DC5;
   color: #C4CED3;
@@ -123,6 +146,11 @@
 .mavericks .matchup__stats-table thead td,
 .mavericks .matchup__stats-table tbody td {
   border-color: #C4CED3;
+  color: #20385B;
+}
+
+.mavericks [class$='team-city-name'] {
+  color: #20385B;
 }
 
 /* Denver Nuggets colors
@@ -132,7 +160,6 @@
  * quarterany: white
 */
 
-.nuggets,
 .nuggets {
   background: #4FA8FF;
   color: #FFB20F;
@@ -141,6 +168,11 @@
 .nuggets .matchup__stats-table thead td,
 .nuggets .matchup__stats-table tbody td {
   border-color: #FFB20F;
+  color: #004770;
+}
+
+.nuggets [class$='team-city-name'] {
+  color: #004770;
 }
 
 /* Detroit Pistons colors
@@ -150,7 +182,6 @@
  * quarterany: white
 */
 
-.pistons,
 .pistons {
   background: #006BB6;
   color: #ED174C;
@@ -159,6 +190,11 @@
 .pistons .matchup__stats-table thead td,
 .pistons .matchup__stats-table tbody td {
   border-color: #ED174C;
+  color: #001F70;
+}
+
+.pistons [class$='team-city-name'] {
+  color: #001F70;
 }
 
 /* Golden State Warriors colors
@@ -166,7 +202,6 @@
  * secondary: #FDB927
 */
 
-.warriors,
 .warriors {
   background: #006BB6;
   color: #FDB927;
@@ -175,25 +210,40 @@
 .warriors .matchup__stats-table thead td,
 .warriors .matchup__stats-table tbody td {
   border-color: #FDB927;
+  color: inherit;
+}
+
+.warriors [class$='team-city-name'] {
+  color: inherit;
 }
 
 /* Houston Rockets colors
- * primary: #CE1141
+ * primary: #CE1141 or #CD212B
  * secondary: #C4CED3
  * tertiary: #FDB927
  * quarternay: white
  * quinary: black
 */
 
-.rockets,
 .rockets {
-  background: #CE1141;
-  color: #fff;
+  /* background: #CE1141; */
+  background: #CD212B;
+  /* background: white; */
+  /* color: #CE1141; */
+  color: white;
 }
 
 .rockets .matchup__stats-table thead td,
 .rockets .matchup__stats-table tbody td {
-  border-color: #C4CED3;
+  /* border-color: #CE1141; */
+  border-color: white;
+  /* color: #FDB927; */
+  color: black;
+}
+
+.rockets [class$='team-city-name'] {
+  /* color: #FDB927; */
+  color: black;
 }
 
 /* Indiana Pacers colors
@@ -203,7 +253,6 @@
  * quarternay: white
 */
 
-.pacers,
 .pacers {
   background: #00275D;
   color: #FFC633;
@@ -212,6 +261,11 @@
 .pacers .matchup__stats-table thead td,
 .pacers .matchup__stats-table tbody td {
   border-color: #FFC633;
+  color: #BEC0C2;
+}
+
+.pacers [class$='team-city-name'] {
+  color: #BEC0C2;
 }
 
 /* Los Angeles Clippers colors
@@ -222,15 +276,21 @@
  * quinary: #00285D
 */
 
-.clippers,
 .clippers {
-  background: #ED174C;
-  color: #fff;
+  /* background: #ED174C; */
+  background: white;
+  color: #ED174C;
 }
 
 .clippers .matchup__stats-table thead td,
 .clippers .matchup__stats-table tbody td {
-  border-color: #fff;
+  /* border-color: #fff; */
+  border-color: #ED174C;
+  color: #006BB6;
+}
+
+.clippers [class$='team-city-name'] {
+  color: #006BB6;
 }
 
 /* Los Angeles Lakers colors
@@ -239,7 +299,6 @@
  * tertiary: white
 */
 
-.lakers,
 .lakers {
   background: #552582;
   color: #FDB927;
@@ -248,6 +307,11 @@
 .lakers .matchup__stats-table thead td,
 .lakers .matchup__stats-table tbody td {
   border-color: #FDB927;
+  color: inherit;
+}
+
+.lakers [class$='team-city-name'] {
+  color: inherit;
 }
 
 /* Memphis Grizzlies colors
@@ -257,7 +321,6 @@
  * quarternay: #FFD432
 */
 
-.grizzlies,
 .grizzlies {
   background: #23375B;
   color: #6189B9;
@@ -266,6 +329,11 @@
 .grizzlies .matchup__stats-table thead td,
 .grizzlies .matchup__stats-table tbody td {
   border-color: #6189B9;
+  color: #BBD1E4;
+}
+
+.grizzlies [class$='team-city-name'] {
+  color: #BBD1E4;
 }
 
 /* Miami Heat colors
@@ -275,15 +343,21 @@
  * quarternay: black
 */
 
-.heat,
 .heat {
   background: #98002E;
-  color: #F9A01B;
+  /* color: #F9A01B; */
+  color: white;
 }
 
 .heat .matchup__stats-table thead td,
 .heat .matchup__stats-table tbody td {
-  border-color: #F9A01B;
+  /* border-color: #F9A01B; */
+  border-color: white;
+  color: black;
+}
+
+.heat [class$='team-city-name'] {
+  color: black;
 }
 
 /* Milwaukee Bucks colors
@@ -294,7 +368,6 @@
  * quinary: black
 */
 
-.bucks,
 .bucks {
   background: #00471B;
   color: #EEE1C6;
@@ -303,6 +376,11 @@
 .bucks .matchup__stats-table thead td,
 .bucks .matchup__stats-table tbody td {
   border-color: #EEE1C6;
+  color: white;
+}
+
+.bucks [class$='team-city-name'] {
+  color: white;
 }
 
 /* Minnesota Timberwolves colors
@@ -313,7 +391,6 @@
  * quinary: black
 */
 
-.timberwolves,
 .timberwolves {
   background: #005083;
   color: #C4CED3;
@@ -322,6 +399,11 @@
 .timberwolves .matchup__stats-table thead td,
 .timberwolves .matchup__stats-table tbody td {
   border-color: #C4CED3;
+  color: #00A94F;
+}
+
+.timberwolves [class$='team-city-name'] {
+  color: #00A94F;
 }
 
 /* New Orleans Pelicans colors
@@ -331,7 +413,6 @@
  * quarternay: white
 */
 
-.pelicans,
 .pelicans {
   background: #002B5C;
   color: #B4975A;
@@ -340,6 +421,11 @@
 .pelicans .matchup__stats-table thead td,
 .pelicans .matchup__stats-table tbody td {
   border-color: #B4975A;
+  color: #E31937;
+}
+
+.pelicans [class$='team-city-name'] {
+  color: #E31937;
 }
 
 /* New York Knicks colors
@@ -349,7 +435,6 @@
  * quarterany: #BEC0C2
 */
 
-.knicks,
 .knicks {
   background: #006BB6;
   color: #F58426;
@@ -358,6 +443,11 @@
 .knicks .matchup__stats-table thead td,
 .knicks .matchup__stats-table tbody td {
   border-color: #F58426;
+  color: white;
+}
+
+.knicks [class$='team-city-name'] {
+  color: white;
 }
 
 /* Oklahoma City Thunder colors
@@ -367,15 +457,22 @@
  * quarterany: #002D62
 */
 
-.thunder,
 .thunder {
   background: #007DC3;
+  /* background: white; */
   color: #F05133;
 }
 
 .thunder .matchup__stats-table thead td,
 .thunder .matchup__stats-table tbody td {
   border-color: #F05133;
+  /* color: #007DC3; */
+  color: white;
+}
+
+.thunder [class$='team-city-name'] {
+  /* color: #007DC3; */
+  color: white;
 }
 
 /* Orlando Magic colors
@@ -385,7 +482,6 @@
  * quarterany: black
 */
 
-.magic,
 .magic {
   background: #007DC5;
   color: #C4CED3;
@@ -394,6 +490,11 @@
 .magic .matchup__stats-table thead td,
 .magic .matchup__stats-table tbody td {
   border-color: #C4CED3;
+  color: white;
+}
+
+.magic [class$='team-city-name'] {
+  color: white;
 }
 
 /* Philadelphia 76ers colors
@@ -402,7 +503,6 @@
  * tertiary: white
 */
 
-.sixers,
 .sixers {
   background: #006BB6;
   color: #ED174C;
@@ -411,6 +511,11 @@
 .sixers .matchup__stats-table thead td,
 .sixers .matchup__stats-table tbody td {
   border-color: #ED174C;
+  color: white;
+}
+
+.sixers [class$='team-city-name'] {
+  color: white;
 }
 
 /* Phoenix Suns colors
@@ -421,15 +526,20 @@
  * quinary: black
 */
 
-.suns,
 .suns {
   background: #E56020;
-  color: #1D1160;
+  /* color: #1D1160; */
+  color: white;
 }
 
 .suns .matchup__stats-table thead td,
 .suns .matchup__stats-table tbody td {
-  border-color: #1D1160;
+  border-color: white;
+  color: #1D1160;
+}
+
+.suns [class$='team-city-name'] {
+  color: #1D1160;
 }
 
 /* Portland Trailblazers colors
@@ -439,15 +549,26 @@
  * quarternary: black
 */
 
-.trailblazers,
 .trailblazers {
-  background: #F0163A;
-  color: #fff;
+  /* background: #F0163A; */
+  background: black;
+  /* color: #B6BFBF; */
+  /* color: #F0163A; */
+  color: #CC0000;
 }
 
 .trailblazers .matchup__stats-table thead td,
 .trailblazers .matchup__stats-table tbody td {
-  border-color: #B6BFBF;
+  /* border-color: #B6BFBF; */
+  /* border-color: #F0163A; */
+  border-color: #CC0000;
+  /* color: #F0163A; */
+  color: #B6BFBF;
+}
+
+.trailblazers [class$='team-city-name'] {
+  /* color: #F0163A; */
+  color: #B6BFBF;
 }
 
 /* Sacramento Kings colors
@@ -457,7 +578,6 @@
  * quarternary: black
 */
 
-.kings,
 .kings {
   background: #724C9F;
   color: #fff;
@@ -466,6 +586,11 @@
 .kings .matchup__stats-table thead td,
 .kings .matchup__stats-table tbody td {
   border-color: #8E9090;
+  color: white;
+}
+
+.kings [class$='team-city-name'] {
+  color: white;
 }
 
 /* San Antonio Spurs colors
@@ -474,7 +599,6 @@
  * tertiary: black
 */
 
-.spurs,
 .spurs {
   background: #B6BFBF;
   color: #000;
@@ -483,6 +607,11 @@
 .spurs .matchup__stats-table thead td,
 .spurs .matchup__stats-table tbody td {
   border-color: #000;
+  color: white;
+}
+
+.spurs [class$='team-city-name'] {
+  color: white;
 }
 
 /* Toronto Raptors colors
@@ -492,7 +621,6 @@
  * quarternary: black
 */
 
-.raptors,
 .raptors {
   background: #CE1141;
   color: #C4CED3;
@@ -501,6 +629,11 @@
 .raptors .matchup__stats-table thead td,
 .raptors .matchup__stats-table tbody td {
   border-color: #C4CED3;
+  color: black;
+}
+
+.raptors [class$='team-city-name'] {
+  color: black;
 }
 
 /* Utah Jazz colors
@@ -510,7 +643,6 @@
  * quarternary: #BEC0C2
 */
 
-.jazz,
 .jazz {
   background: #002B5C;
   color: #F9A01B;
@@ -519,23 +651,36 @@
 .jazz .matchup__stats-table thead td,
 .jazz .matchup__stats-table tbody td {
   border-color: #F9A01B;
+  color: #00471B;
+}
+
+.jazz [class$='team-city-name'] {
+  color: #00471B;
 }
 
 /* Washington Wizards colors
  * primary: #002566
- * secondary: #F5002F
+ * secondary: #F5002F or #cf142b
  * tertiary: #C2CCCC
  * quarternary: white
 */
 
-.wizards,
 .wizards {
   background: #002B5C;
-  color: #F9A01B;
+  /* background: #F5002F; */
+  /* color: #002B5C; */
+  /* color: #F5002F; */
+  color: #cf142b;
 }
 
 .wizards .matchup__stats-table thead td,
 .wizards .matchup__stats-table tbody td {
-  border-color: #F9A01B;
+  /* border-color: #002B5C; */
+  /* border-color: #F5002F; */
+  border-color: #cf142b;
+  color: white;
 }
 
+.wizards [class$='team-city-name'] {
+  color: white;
+}

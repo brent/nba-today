@@ -10,8 +10,8 @@ app.use(express.static('public'));
 
 app.get('/', function(req, res) {
 
-  var today = moment().subtract(1, 'days').format("MM/DD/YYYY");
-  // var today = moment().format("MM/DD/YYYY");
+  var today = moment().format("MM/DD/YYYY");
+  // var today = moment().subtract(1, 'days').format("MM/DD/YYYY");
 
   nba.stats.scoreboard({gameDate: today}, function(err, response) {
 

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Oswald|Droid+Serif:400italic);
+@import url(https://fonts.googleapis.com/css?family=Oswald|Droid+Serif:400,400italic);
 
 html { font-size: 20px; }
 
@@ -42,8 +42,8 @@ html { font-size: 20px; }
 .matchup__home-team-city-name,
 .matchup__visitor-team-city-name {
   font-family: "Droid Serif";
-  font-size: 0.9rem;
-  font-style: italic;
+  font-size: 1.25rem;
+  /* font-style: italic; */
 }
 
 .matchup__home-team-team-name,
@@ -91,7 +91,7 @@ html { font-size: 20px; }
 }
 
 .matchup__meta {
-  color: #fff;
+  color: #eee;
   font-family: Oswald;
   height: 100vh;
   left: 50%;
@@ -111,21 +111,42 @@ html { font-size: 20px; }
   transform: translate(-50%,-50%);
 }
 
-.matchup__game-start,
-.matchup__game-start-time {
-  display: block;
+.matchup__game-time-score {
+  align-items: center;
+  /* background: rgba(255,255,255,0.3); */
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 1px rgba(0,0,0,0.1);
+  color: #444;
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: space-between;
+  min-width: 8rem;
+  padding: 30px;
 }
 
-.matchup__game-start {
+.matchup__game-time-score {
   bottom: 2.5rem;
   font-size: 0.75rem;
   left: 50%;
   position: absolute;
   transform: translate(-50%,0);
-  width: 6rem;
 }
 
-.matchup__game-start-time {
+.matchup__game-time {
+  color: #777;
   font-size: 1rem;
   margin-top: 0.5rem;
+}
+
+.matchup__meta [class$="team-score"] {
+  font-size: 2rem;
+}
+
+.matchup__meta .matchup__home-team-score {
+  margin-right: 1.5rem;
+}
+
+.matchup__meta .matchup__visitor-team-score {
+  margin-left: 1.5rem;
 }
