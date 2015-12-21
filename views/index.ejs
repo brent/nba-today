@@ -10,12 +10,13 @@
     <% matchups.forEach(function(matchup) { %>
     <section class="matchup">
       <div class="matchup__home-team--wrapper 
-        <% if(matchup.homeTeam.name==="76ers") { %>
-          <%= sixers %>
-        <% } else { %>
-          <%= matchup.homeTeam.name.toLowerCase().replace(/\s+/g, "") %>
-        <% } %>
-          ">
+      <% if(matchup.homeTeam.name==='76ers') { %>
+        <%= sixers %>
+      <% } else { %>
+        <%= matchup.homeTeam.name.toLowerCase().replace(/\s+/g,"") %>
+      <% } %>
+      ">
+
         <div class="matchup__home-team--inner">
 
           <h2 class="matchup__home-team-title">
@@ -41,7 +42,10 @@
             </tbody>
           </table>
 
-        </div>
+        </div><!-- END .matchup__home-team-inner -->
+
+        <img class="matchup__home-team-logo" src="img/<%if(matchup.homeTeam.name==='76ers'){%><%=sixers%><%}else{%><%=matchup.homeTeam.name.toLowerCase().replace(/\s+/g,"")%>.svg<%}%>"/>
+
       </div><!-- END .home-team -->
 
       <div class="matchup__meta">
@@ -54,12 +58,13 @@
       </div><!-- END .matchup__meta -->
 
       <div class="matchup__visitor-team--wrapper
-        <% if(matchup.visitorTeam.name==="76ers") { %>
-          sixers
-        <% } else { %>
-          <%= matchup.visitorTeam.name.toLowerCase().replace(/\s+/g, "") %>
-        <% } %>
-        ">
+      <% if(matchup.visitorTeam.name==='76ers') { %>
+        sixers
+      <% } else { %>
+        <%= matchup.visitorTeam.name.toLowerCase().replace(/\s+/g,"") %>
+      <% } %>
+      ">
+
         <div class="matchup__visitor-team--inner">
           <h2 class="matchup__visitor-team-title">
             <span class="matchup__visitor-team-city-name"><%= matchup.visitorTeam.city %></span>
@@ -83,8 +88,12 @@
               </tr>
             </tbody>
           </table>
-        </div>
+        </div><!-- END .matchup__visitor-team-inner -->
+
+        <img class="matchup__visitor-team-logo" src="img/<%if(matchup.homeTeam.name==='76ers'){%><%=sixers%><%}else{%><%=matchup.visitorTeam.name.toLowerCase().replace(/\s+/g,"")%>.svg<%}%>"/>
+
       </div><!-- END .visitor-team -->
+
     </section><!-- END .matchup -->
     <% }); %>
   </body>

@@ -19,8 +19,29 @@ html { font-size: 20px; }
   width: 100%;
 }
 
+.matchup__home-team-logo,
+.matchup__visitor-team-logo {
+  position: absolute;
+  bottom: -33%;
+  opacity: 0.06;
+}
+
+.matchup__home-team-logo {
+  right: -33%;
+}
+
+.matchup__visitor-team-logo {
+  left: -33%;
+}
+
 .matchup__visitor-team--inner {
   margin-left: auto;
+}
+
+.matchup__home-team--wrapper,
+.matchup__visitor-team--wrapper {
+  position: relative;
+  overflow: hidden;
 }
 
 .matchup__home-team--wrapper {
@@ -99,6 +120,7 @@ html { font-size: 20px; }
   text-align: center;
   top: 50%;
   transform: translate(-50%,-50%);
+  z-index: 999;
 }
 
 .matchup__at-sign {
