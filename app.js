@@ -3,30 +3,66 @@ var moment = require("moment");
 var express = require("express");
 var fs = require('fs');
 
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var nbaDailyScheduleSchema = new Schema({ schedule: {} });
+var nbaDailySchedule = mongoose.model('nbaDailySchedule', nbaDailyScheduleSchema);
+
+mongoose.connect('mongodb://localhost/nbaDaily');
+
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, "connection error:"));
+db.once('open', function() {
+  console.log("mongo connection successful!");
+});
+
+var CronJob = require('cron').CronJob;
+var job = new CronJob({
+  cronTime: '0 0 * * * *',
+  onTick: function() {
+    var today = moment().format("MM/DD/YYYY");
+
+    nba.stats.scoreboard({ gameDate: today }, function(err, res) {
+
+      var schedule = new nbaDailySchedule({ schedule: res });
+      schedule.save(function(err) {
+        if(err) return handleError(err);
+        if(!err) console.log("["+moment().format("MM-DD-YYYY] - HH:mm:ss") + " data saved to mongo!");
+      });
+
+    });
+  },
+  start: true,
+  runOnInit: true
+});
+
 var app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+function getDailySchedule(fn) {
+  nbaDailySchedule.find().sort( { _id : -1 } ).limit(1).exec(function(err, scheduleData) {
+    fn(scheduleData[0].schedule);
+  });
+}
+
 app.get('/', function(req, res) {
 
-  var today = moment().format("MM/DD/YYYY");
-  // var today = moment().subtract(1, 'days').format("MM/DD/YYYY");
-
-  nba.stats.scoreboard({gameDate: today}, function(err, response) {
-
-    console.log(response);
+  getDailySchedule(function(schedule) {
 
     var matchups = [];
 
     // combine east/west rosters so it can be looped through later
-    var allTeams = response.eastConfStandingsByDay.concat(response.westConfStandingsByDay);
-    var lineScore = response.lineScore;
+    var allTeams = schedule.eastConfStandingsByDay.concat(schedule.westConfStandingsByDay);
+    var lineScore = schedule.lineScore;
 
-    response.gameHeader.forEach(function(el, index, arr) {
+    schedule.gameHeader.forEach(function(el, index, arr) {
 
       // relevant stats
-      var lastMeeting = response.lastMeeting[index],
+      var lastMeeting = schedule.lastMeeting[index],
           matchupId = el.gameId;
 
       var homeTeamId = el.homeTeamId
@@ -76,9 +112,9 @@ app.get('/', function(req, res) {
 
       // add stats to matchups array
       matchups.push({
-        date: response.gameHeader[index].gameDateEst,
-        time: response.gameHeader[index].gameStatusText,
-        gameId: response.gameHeader[index].gameId,
+        date: schedule.gameHeader[index].gameDateEst,
+        time: schedule.gameHeader[index].gameStatusText,
+        gameId: schedule.gameHeader[index].gameId,
         homeTeam: {
           id: homeTeamId,
           city: homeTeamCity,
@@ -102,13 +138,10 @@ app.get('/', function(req, res) {
           score: visitorTeamScore
         }
       });
-
     });
 
-    res.render('index', { matchups: matchups });
-
+  res.render('index', { matchups: matchups });
   });
-
 });
 
 var server = app.listen(3000, function() {
