@@ -20,7 +20,7 @@ db.once('open', function() {
 
 var CronJob = require('cron').CronJob;
 var job = new CronJob({
-  cronTime: '0 0 * * * *',
+  cronTime: '0 12 * * * *',
   onTick: function() {
     var today = moment().format("MM/DD/YYYY");
 
@@ -43,12 +43,13 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-function getDailySchedule(fn) {
+function getDailySchedule(cb) {
   nbaDailySchedule.find().sort( { _id : -1 } ).limit(1).exec(function(err, scheduleData) {
-    fn(scheduleData[0].schedule);
+    cb(scheduleData[0].schedule);
   });
 }
 
+// For sub directory deployment, '/' becomes '/nba-stats'
 app.get('/', function(req, res) {
 
   getDailySchedule(function(schedule) {
@@ -65,25 +66,24 @@ app.get('/', function(req, res) {
       var lastMeeting = schedule.lastMeeting[index],
           matchupId = el.gameId;
 
-      var homeTeamId = el.homeTeamId
-        , homeTeamCity = lastMeeting.lastGameHomeTeamCity
-        , homeTeamName = lastMeeting.lastGameHomeTeamName
-        , homeTeamAbbreviation = lastMeeting.lastGameHomeTeamAbbreviation
-        , homeTeamWins = 0
-        , homeTeamLosses = 0
-        , homeTeamHomeRecord = ""
-        , homeTeamRoadRecord = ""
-        , homeTeamScore = 0
-        , visitorTeamId = el.visitorTeamId
-        , visitorTeamCity = lastMeeting.lastGameVisitorTeamCity
-        , visitorTeamName = lastMeeting.lastGameVisitorTeamName
-        , visitorTeamAbbreviation = lastMeeting.lastGameVisitorTeamCity1
-        , visitorTeamWins = 0
-        , visitorTeamLosses = 0
-        , visitorTeamHomeRecord = ""
-        , visitorTeamRoadRecord = ""
-        , visitorTeamScore = 0
-      ;
+      var homeTeamId = el.homeTeamId,
+          homeTeamCity = lastMeeting.lastGameHomeTeamCity,
+          homeTeamName = lastMeeting.lastGameHomeTeamName,
+          homeTeamAbbreviation = lastMeeting.lastGameHomeTeamAbbreviation,
+          homeTeamWins = 0,
+          homeTeamLosses = 0,
+          homeTeamHomeRecord = "",
+          homeTeamRoadRecord = "",
+          homeTeamScore = 0,
+          visitorTeamId = el.visitorTeamId,
+          visitorTeamCity = lastMeeting.lastGameVisitorTeamCity,
+          visitorTeamName = lastMeeting.lastGameVisitorTeamName,
+          visitorTeamAbbreviation = lastMeeting.lastGameVisitorTeamCity1,
+          visitorTeamWins = 0,
+          visitorTeamLosses = 0,
+          visitorTeamHomeRecord = "",
+          visitorTeamRoadRecord = "",
+          visitorTeamScore = 0;
 
       // loop through roster to find home/away team stats
       allTeams.forEach(function(el, index, arr) {
