@@ -171,10 +171,6 @@ html { font-size: 20px; }
   font-size: 2rem;
 }
 
-.matchup__meta .matchup__visitor-team-score {
-  margin-right: 1.5rem;
-}
+.matchup__meta .matchup__home-team-score { }
 
-.matchup__meta .matchup__home-team-score {
-  margin-left: 1.5rem;
-}
+.matchup__meta .matchup__visitor-team-score { }

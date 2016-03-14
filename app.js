@@ -20,7 +20,8 @@ db.once('open', function() {
 
 var CronJob = require('cron').CronJob;
 var job = new CronJob({
-  cronTime: '0 12 * * * *',
+  // cronTime: '0 */2 * * * *', // every 2 min, but data isn't fresh
+  cronTime: '0 0 7 * * *',
   onTick: function() {
     var today = moment().format("MM/DD/YYYY");
 
