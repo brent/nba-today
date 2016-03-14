@@ -7,7 +7,7 @@
   "dependencies" : {
     "express" : "~4.13.3",
     "request" : "~2.67.0",
-    "nba"     : "~1.0.1",
+    "nba"     : "~2.0.0",
     "moment"  : "~2.10.6",
     "ejs"     : "~2.3.4",
     "mongoose": "~4.3.5"
