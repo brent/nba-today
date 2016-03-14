@@ -29,7 +29,7 @@ var job = new CronJob({
       var schedule = new nbaDailySchedule({ schedule: res });
       schedule.save(function(err) {
         if(err) return handleError(err);
-        if(!err) console.log("["+moment().format("MM-DD-YYYY] - HH:mm:ss") + " data saved to mongo!");
+        if(!err) console.log("["+moment().format("MM-DD-YYYY @ HH:mm:ss] - ") + "data saved to mongo!");
       });
 
     });

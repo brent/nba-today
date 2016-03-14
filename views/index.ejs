@@ -9,6 +9,46 @@
   <body>
     <% matchups.forEach(function(matchup) { %>
     <section class="matchup">
+
+      <div class="matchup__visitor-team--wrapper <% if(matchup.visitorTeam.name==='76ers') { %> sixers <% } else { %> <%= matchup.visitorTeam.name.toLowerCase().replace(/\s+/g,"") %> <% } %> ">
+
+        <img class="matchup__visitor-team-logo" src="img/<%if(matchup.visitorTeam.name==='76ers'){%>sixers<%}else{%><%=matchup.visitorTeam.name.toLowerCase().replace(/\s+/g,"")%><%}%>.svg"/>
+
+        <div class="matchup__visitor-team--inner">
+          <h2 class="matchup__visitor-team-title">
+            <span class="matchup__visitor-team-city-name"><%= matchup.visitorTeam.city %></span>
+            <span class="matchup__visitor-team-team-name"><%= matchup.visitorTeam.name %></span>
+          </h2>
+          <table class="matchup__stats-table">
+            <thead>
+              <tr>
+                <td>W</td>
+                <td>L</td>
+                <td>H</td>
+                <td>A</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= matchup.visitorTeam.wins %></td>
+                <td><%= matchup.visitorTeam.losses %></td>
+                <td><%= matchup.visitorTeam.homeRecord %></td>
+                <td><%= matchup.visitorTeam.roadRecord %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- END .matchup__visitor-team-inner -->
+      </div><!-- END .matchup__visitor-team- -wrapper -->
+
+      <div class="matchup__meta">
+        <p class="matchup__at-sign">@</p>
+        <div class="matchup__game-time-score">
+          <!-- <span class="matchup__home-team-score"><%= matchup.homeTeam.score %></span> -->
+          <span class="matchup__game-time"><%= matchup.time.toLowerCase() %></span>
+          <!-- <span class="matchup__visitor-team-score"><%= matchup.visitorTeam.score %></span> -->
+        </div><!-- END .matchup__game-time-score -->
+      </div><!-- END .matchup__meta -->
+
       <div class="matchup__home-team--wrapper <% if(matchup.homeTeam.name==='76ers') { %> sixers <% } else { %> <%= matchup.homeTeam.name.toLowerCase().replace(/\s+/g,"") %> <% } %> ">
 
         <img class="matchup__home-team-logo" src="img/<%if(matchup.homeTeam.name==='76ers'){%>sixers<%}else{%><%=matchup.homeTeam.name.toLowerCase().replace(/\s+/g,"")%><%}%>.svg"/>
@@ -40,46 +80,8 @@
 
         </div><!-- END .matchup__home-team-inner -->
 
-      </div><!-- END .home-team -->
+      </div><!-- END .matchup__home-team- -wrapper -->
 
-      <div class="matchup__meta">
-        <p class="matchup__at-sign">@</p>
-        <div class="matchup__game-time-score">
-          <!-- <span class="matchup__home-team-score"><%= matchup.homeTeam.score %></span> -->
-          <span class="matchup__game-time"><%= matchup.time.toLowerCase() %></span>
-          <!-- <span class="matchup__visitor-team-score"><%= matchup.visitorTeam.score %></span> -->
-        </div><!-- END .matchup__game-time-score -->
-      </div><!-- END .matchup__meta -->
-
-      <div class="matchup__visitor-team--wrapper <% if(matchup.visitorTeam.name==='76ers') { %> sixers <% } else { %> <%= matchup.visitorTeam.name.toLowerCase().replace(/\s+/g,"") %> <% } %> ">
-
-        <img class="matchup__visitor-team-logo" src="img/<%if(matchup.visitorTeam.name==='76ers'){%>sixers<%}else{%><%=matchup.visitorTeam.name.toLowerCase().replace(/\s+/g,"")%><%}%>.svg"/>
-
-        <div class="matchup__visitor-team--inner">
-          <h2 class="matchup__visitor-team-title">
-            <span class="matchup__visitor-team-city-name"><%= matchup.visitorTeam.city %></span>
-            <span class="matchup__visitor-team-team-name"><%= matchup.visitorTeam.name %></span>
-          </h2>
-          <table class="matchup__stats-table">
-            <thead>
-              <tr>
-                <td>W</td>
-                <td>L</td>
-                <td>H</td>
-                <td>A</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><%= matchup.visitorTeam.wins %></td>
-                <td><%= matchup.visitorTeam.losses %></td>
-                <td><%= matchup.visitorTeam.homeRecord %></td>
-                <td><%= matchup.visitorTeam.roadRecord %></td>
-              </tr>
-            </tbody>
-          </table>
-        </div><!-- END .matchup__visitor-team-inner -->
-      </div><!-- END .visitor-team -->
     </section><!-- END .matchup -->
     <% }); %>
   </body>
