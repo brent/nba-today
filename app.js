@@ -49,7 +49,8 @@ function getDailySchedule(cb) {
   });
 }
 
-// For sub directory deployment, '/' becomes '/nba-stats'
+// For production: '/' becomes '/nba-today'
+// Also, index.ejs needs all paths to be prefaced with '/nba-today'
 app.get('/', function(req, res) {
 
   getDailySchedule(function(schedule) {
@@ -58,27 +59,32 @@ app.get('/', function(req, res) {
 
     // combine east/west rosters so it can be looped through later
     var allTeams = schedule.eastConfStandingsByDay.concat(schedule.westConfStandingsByDay);
-    var lineScore = schedule.lineScore;
 
     schedule.gameHeader.forEach(function(el, index, arr) {
 
       // relevant stats
-      var lastMeeting = schedule.lastMeeting[index],
+      var lastMeeting = schedule.lastMeeting[index], // this assumes the same order as the gameHeader, doesn't it?
           matchupId = el.gameId;
 
       var homeTeamId = el.homeTeamId,
-          homeTeamCity = lastMeeting.lastGameHomeTeamCity,
-          homeTeamName = lastMeeting.lastGameHomeTeamName,
-          homeTeamAbbreviation = lastMeeting.lastGameHomeTeamAbbreviation,
+          // homeTeamCity = lastMeeting.lastGameHomeTeamCity,
+          // homeTeamName = lastMeeting.lastGameHomeTeamName,
+          // homeTeamAbbreviation = lastMeeting.lastGameHomeTeamAbbreviation,
+          homeTeamCity = "",
+          homeTeamName = "",
+          homeTeamAbbreviation = "",
           homeTeamWins = 0,
           homeTeamLosses = 0,
           homeTeamHomeRecord = "",
           homeTeamRoadRecord = "",
           homeTeamScore = 0,
           visitorTeamId = el.visitorTeamId,
-          visitorTeamCity = lastMeeting.lastGameVisitorTeamCity,
-          visitorTeamName = lastMeeting.lastGameVisitorTeamName,
-          visitorTeamAbbreviation = lastMeeting.lastGameVisitorTeamCity1,
+          // visitorTeamCity = lastMeeting.lastGameVisitorTeamCity,
+          // visitorTeamName = lastMeeting.lastGameVisitorTeamName,
+          // visitorTeamAbbreviation = lastMeeting.lastGameVisitorTeamCity1,
+          visitorTeamCity = "",
+          visitorTeamName = "",
+          visitorTeamAbbreviation = "",
           visitorTeamWins = 0,
           visitorTeamLosses = 0,
           visitorTeamHomeRecord = "",
@@ -87,25 +93,37 @@ app.get('/', function(req, res) {
 
       // loop through roster to find home/away team stats
       allTeams.forEach(function(el, index, arr) {
-          if(el.teamId === homeTeamId) {
-              homeTeamWins = el.w;
-              homeTeamLosses = el.l;
-              homeTeamHomeRecord = el.homeRecord;
-              homeTeamRoadRecord = el.roadRecord;
-          }
-          if(el.teamId === visitorTeamId) {
-              visitorTeamWins = el.w;
-              visitorTeamLosses = el.l;
-              visitorTeamHomeRecord = el.homeRecord;
-              visitorTeamRoadRecord = el.roadRecord;
-          }
+        if(homeTeamId === el.teamId) {
+          homeTeamWins = el.w;
+          homeTeamLosses = el.l;
+          homeTeamHomeRecord = el.homeRecord;
+          homeTeamRoadRecord = el.roadRecord;
+        }
+        else if(visitorTeamId === el.teamId) {
+          visitorTeamWins = el.w;
+          visitorTeamLosses = el.l;
+          visitorTeamHomeRecord = el.homeRecord;
+          visitorTeamRoadRecord = el.roadRecord;
+        }
       });
 
-      lineScore.forEach(function(el, index, arr) {
-        if(matchupId == el.gameId && el.teamId == homeTeamId) {
+      // loop through last meeting for some secondary info
+      schedule.lastMeeting.forEach(function(el, index, arr) {
+        if(homeTeamId === el.lastGameHomeTeamId) {
+          homeTeamCity = el.lastGameHomeTeamCity;
+          homeTeamName = el.lastGameHomeTeamName;
+        }
+        if(visitorTeamId === el.lastGameVisitorTeamId) {
+          visitorTeamCity = el.lastGameVisitorTeamCity;
+          visitorTeamName = el.lastGameVisitorTeamName;
+        }
+      });
+
+      schedule.lineScore.forEach(function(el, index, arr) {
+        if(matchupId === el.gameId && el.teamId === homeTeamId) {
           homeTeamScore = el.pts;
         }
-        if(matchupId == el.gameId && el.teamId == visitorTeamId) {
+        else if(matchupId === el.gameId && el.teamId === visitorTeamId) {
           visitorTeamScore = el.pts;
         }
       });
